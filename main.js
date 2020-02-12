@@ -2,24 +2,18 @@ const primeSifter = (num) => {
   if (isNaN(num)) {
     return
   } else {
-    const primes = new Array(num)
-
-    // refactor this into a recursive function
-    for (let index = 0; index < num; index++) {
-      primes[index] = index
-    }
-    let p = 2
-
-    // refactor to filter
-    primes.forEach((number) => {
-      if (number % p === 0) {
-        primes.slice(p, p+1)
+    const recursor = (pValue, ary) => {
+      if (pValue >= num) {
+        // console.log(`in the home stretch! primes are ${ary}`)
+        return [...ary]
+      } else {
+        newPrimes = ary.filter(n => n !== pValue && n % pValue !== 0)
+        // console.log(`in the else at ${pValue}. newPrimes are: ${newPrimes}`)
+        return recursor(pValue + 1, newPrimes)
       }
-    })
-    p++
-    // return a function that contains:
-    // - the new array
-    // - incremented p
+    }
+    let primes = [...Array(num+1).keys()].slice(2)
+    return recursor(2, primes)
   }
 }
 
@@ -30,3 +24,18 @@ $(document).ready(function() {
     $('#result').text(num)
   })
 })
+
+// BELOW is my scratch pad for currying this function: the next step
+// const recursor = (pValue, ary) => {
+//   if (pValue >= num) {
+//     // console.log(`in the home stretch! primes are ${ary}`)
+//     return [...ary]
+//   } else {
+//     newPrimes = ary.filter(n => n !== pValue && n % pValue !== 0)
+//     // console.log(`in the else at ${pValue}. newPrimes are: ${newPrimes}`)
+//     return recursor(pValue + 1, newPrimes)
+//   }
+// }
+// let primes = [...Array(num+1).keys()].slice(2)
+// return recursor(2, primes)
+// }

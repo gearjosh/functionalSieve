@@ -1,4 +1,5 @@
 import sieve from "./sieve";
+import './styles.css'
 
 $(document).ready(function() {
   $('#numberSelector').submit(function(e){

@@ -2,17 +2,16 @@ const primeSifter = (num) => {
   if (isNaN(num)) {
     return 'Try a number, please!'
   } else {
-    const recursor = (a, p = 2) => {
-      if (p >= num) {
-        return a
+    const recursor = (ary, pValue = 2) => {
+      if (pValue >= num) {
+        return ary
       } else {
-        const filterOutMultiples = n => n === p || n % p !== 0
-        const newPrimes = a.filter(filterOutMultiples)
-        return recursor(newPrimes, p + 1)
+        const filterOutMultiples = n => n === pValue || n % pValue !== 0
+        const newAry = ary.filter(filterOutMultiples)
+        return recursor(newAry, pValue + 1)
       }
     }
-    let primes = [...Array(num+1).keys()].slice(2)
-    return recursor(primes)
+    return recursor([...Array(num+1).keys()].slice(2))
   }
 }
 
@@ -25,16 +24,13 @@ $(document).ready(function() {
 })
 
 // BELOW is my scratch pad for currying this: the next step
-// const recursor = (p, a) => {
-//   if (p >= num) {
-//     // console.log(`in the home stretch! primes are ${a}`)
-//     return [...a]
-//   } else {
-//     newPrimes = a.filter(n => n !== p && n % p !== 0)
-//     // console.log(`in the else at ${p}. newPrimes are: ${newPrimes}`)
-//     return recursor(p + 1, newPrimes)
-//   }
-// }
-// let primes = [...Array(num+1).keys()].slice(2)
-// return recursor(2, primes)
-// }
+
+//     const recursor = (ary, pValue = 2) => {
+//       if (pValue >= num) {
+//         return ary
+//       } else {
+//         const filterOutMultiples = n => n === pValue || n % pValue !== 0
+//         const newAry = ary.filter(filterOutMultiples)
+//         return recursor(newAry, pValue + 1)
+//       }
+//     }

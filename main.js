@@ -4,11 +4,11 @@ const primeSifter = (num) => {
   } else {
     const recursor = (pValue, ary) => {
       if (pValue >= num) {
-        // console.log(`in the home stretch! primes are ${ary}`)
+        console.log(`in the home stretch! primes are ${ary}`)
         return [...ary]
       } else {
-        newPrimes = ary.filter(n => n !== pValue && n % pValue !== 0)
-        // console.log(`in the else at ${pValue}. newPrimes are: ${newPrimes}`)
+        const filterOutMultiples = n => n === pValue || n % pValue !== 0
+        const newPrimes = ary.filter(filterOutMultiples)
         return recursor(pValue + 1, newPrimes)
       }
     }
@@ -25,7 +25,7 @@ $(document).ready(function() {
   })
 })
 
-// BELOW is my scratch pad for currying this function: the next step
+// BELOW is my scratch pad for currying this: the next step
 // const recursor = (pValue, ary) => {
 //   if (pValue >= num) {
 //     // console.log(`in the home stretch! primes are ${ary}`)

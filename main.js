@@ -10,8 +10,7 @@ const primeSifter = (num) => {
           if (pValue >= num) {
             return ary
           } else {
-            const filterOutMultiples = n => n === pValue || n % pValue !== 0
-            const newAry = ary.filter(filterOutMultiples)
+            const newAry = ary.filter(n => n === pValue || n % pValue !== 0)
             return recursor(num)(newAry)(pValue + 1)
           }
         }

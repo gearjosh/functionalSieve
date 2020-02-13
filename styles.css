@@ -1,6 +1,15 @@
 body {
-  background-color: peachpuff;
+  background-color: powderblue;
   font-family: sans-serif;
-  font-size: 4rem;
-  color: magenta;
+  font-size: 3rem;
+  color: mediumorchid;
+  width: 100%;
+  padding: 2rem;
+}
+.container {
+  width: 80vw;
+  margin: 0 auto;
+}
+.showIt {
+  word-wrap: break-word;
 }

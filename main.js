@@ -1,6 +1,8 @@
 const primeSifter = (num) => {
   if (isNaN(num)) {
-    return 'Number, please! :D'
+    return 'ERROR!!! BEEP BOOP BEEP BOOP!!!'
+  } else if (num === 1) {
+    return 'non existent. You should pick a bigger number, homey'
   } else {
     const recursor = num => {
       return ary => {
@@ -20,15 +22,19 @@ const primeSifter = (num) => {
 }
 
 const spaceAdder = (a) => {
-  return a.map((int, i) => {
-    if (i === 0) {
-      return int.toString()
-    } else if (i + 1 === a.length) {
-      return ` and ${int.toString()}`
-    } else {
-      return ` ${int.toString()}`
-    }
-  })
+  if (typeof a === 'string') {
+    return a
+  } else {
+    return a.map((int, i) => {
+      if (i === 0) {
+        return int.toString()
+      } else if (i + 1 === a.length) {
+        return ` and ${int.toString()}`
+      } else {
+        return ` ${int.toString()}`
+      }
+    })
+  }
 }
 
 $(document).ready(function() {

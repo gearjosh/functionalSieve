@@ -19,12 +19,22 @@ const primeSifter = (num) => {
   }
 }
 
+const spaceAdder = (a) => {
+  return a.map((int, i) => {
+    if (i === 0) {
+      return int.toString()
+    } else if (i + 1 === a.length) {
+      return ` and ${int.toString()}`
+    } else {
+      return ` ${int.toString()}`
+    }
+  })
+}
+
 $(document).ready(function() {
   $('#numberSelector').submit(function(e){
     e.preventDefault()
     const n = parseInt($('#number').val())
-    console.log(primeSifter(n))
-    
-    $('#result').text(primeSifter(n))
+    $('#result').text(spaceAdder(primeSifter(n)))
   })
 })

@@ -17,8 +17,12 @@ input {
 button {
   font-size: 2rem;
   background-color: palevioletred;
+  outline-color: peachpuff;
   color: bisque;
   border: none;
+}
+h1 {
+  text-shadow: 0 2px 0 peachpuff;
 }
 .container {
   width: 80vw;
@@ -26,5 +30,5 @@ button {
 }
 .showIt {
   word-wrap: break-word;
-  text-align: justify;
+  display: none;
 }

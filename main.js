@@ -1,7 +1,7 @@
 const primeSifter = (num) => {
   if (isNaN(num)) {
     return 'ERROR!!! BEEP BOOP BEEP BOOP!!!'
-  } else if (num === 1) {
+  } else if (num < 2) {
     return 'non existent. You should pick a bigger number, homey'
   } else {
     const recursor = num => {

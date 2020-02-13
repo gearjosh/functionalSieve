@@ -3,6 +3,8 @@ const primeSifter = (num) => {
     return 'ERROR!!! BEEP BOOP BEEP BOOP!!!'
   } else if (num < 2) {
     return 'non existent. You should pick a bigger number, homey'
+  } else if (num > 6245) {
+    return 'uncomputable! Your number is so big the computer can\'t handle it!'
   } else {
     const recursor = num => {
       return ary => {
@@ -28,7 +30,7 @@ const spaceAdder = (a) => {
       if (i === 0) {
         return int.toString()
       } else if (i + 1 === a.length) {
-        return ` and ${int.toString()}`
+        return ` and ${int.toString()}.`
       } else {
         return ` ${int.toString()}`
       }
@@ -41,5 +43,6 @@ $(document).ready(function() {
     e.preventDefault()
     const n = parseInt($('#number').val())
     $('#result').text(spaceAdder(primeSifter(n)))
+    $('.showIt').show()
   })
 })
